@@ -5,7 +5,19 @@ import sys
 from unicodedata import name
 
 #assume we are converting a Delver Lens export in Tappedout format with Collector's Number appended
-#these files don't have headers
+#New DelverLens exports have headers, TappedOut assumes no headers
+#TappedOut settings:
+#   Qty: 1
+#   Card: 2
+#   Set Name: 4
+#   Language: 5
+#   Condition: 6
+#   Foil Qty: 7
+#   Set Number: 9
+
+#Multiverse ID is not used generally, as not every card has that field from Delver,
+#and TappedOut will fail to import if a blank is provided and the column is specified
+
 
 colnames = ['qty', 'name', 'set_code', 'set_name', 'language', 'condition', 'foil_qty', 'multiverse_id', 'card_num']
 
@@ -54,7 +66,7 @@ name_corrections = {
 
 #fix missing language
 language_corrections = {
-        '':'English'
+    '':'English'
 }
 
 
